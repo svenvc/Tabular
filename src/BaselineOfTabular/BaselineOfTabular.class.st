@@ -9,17 +9,9 @@ BaselineOfTabular >> baseline: spec [
 	<baseline>
 	spec
 		for: #common
-		do: [ spec
-				project: 'XMLWriter'
-					with: [ spec
-						className: #ConfigurationOfXMLWriter;
-						versionString: #stable;
-						repository: 'http://smalltalkhub.com/mc/PharoExtras/XMLWriter/main/' ];
-				project: 'XMLParser'
-					with: [ spec
-						className: #ConfigurationOfXMLParser;
-						versionString: #stable;
-						repository: 'http://smalltalkhub.com/mc/PharoExtras/XMLParser/main/' ].
+		do: [
+			spec baseline: 'XMLWriter' with: [ spec repository: 'github://svenvc/XML-Support-Pharo' ].
+			spec baseline: 'XMLParser' with: [ spec repository: 'github://svenvc/XML-Support-Pharo' ].
 			spec package: 'Tabular' with: [ spec requires: #('XMLWriter' 'XMLParser') ].
 			spec group: 'Core' with: #('Tabular') ]
 ]
